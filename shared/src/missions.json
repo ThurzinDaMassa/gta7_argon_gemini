@@ -1,0 +1,122 @@
+{
+  "$comment": "Missões configuráveis. Adicione novas entradas seguindo o schema em missions.ts. Coordenadas em metros (x, z). r = raio do checkpoint.",
+  "missions": [
+    {
+      "id": "delivery_express", "name": "Entrega Expressa", "type": "delivery",
+      "description": "Retire as encomendas no Café Central e entregue no Mercado 24h e no Sobrado dos Ipês.",
+      "giver": { "x": 95, "z": 190 }, "reward": 1500, "timeLimit": 300,
+      "requires": { "landVehicle": true },
+      "checkpoints": [
+        { "x": 90, "z": 182, "r": 7, "label": "Retirar encomendas", "dialog": "Dona Lúcia: Cuidado com as caixas, são porcelanas!" },
+        { "x": -200, "z": -560, "r": 8, "label": "Entregar no Mercado 24h" },
+        { "x": 265, "z": -710, "r": 8, "label": "Entregar no Sobrado dos Ipês", "dialog": "Cliente: Chegou rapidinho, valeu!" }
+      ]
+    },
+    {
+      "id": "race_downtown", "name": "Circuito do Centro", "type": "race",
+      "description": "Corrida de rua pelos quarteirões do centro financeiro.",
+      "giver": { "x": 180, "z": 20 }, "reward": 2500, "timeLimit": 200,
+      "requires": { "landVehicle": true },
+      "checkpoints": [
+        { "x": 180, "z": 0, "r": 10, "label": "Largada" },
+        { "x": 360, "z": 0, "r": 12, "label": "CP 1" },
+        { "x": 360, "z": -360, "r": 12, "label": "CP 2" },
+        { "x": -180, "z": -360, "r": 12, "label": "CP 3" },
+        { "x": -360, "z": -180, "r": 12, "label": "CP 4" },
+        { "x": -360, "z": 360, "r": 12, "label": "CP 5" },
+        { "x": 180, "z": 360, "r": 12, "label": "Chegada" }
+      ]
+    },
+    {
+      "id": "police_chase", "name": "Fuga Policial", "type": "chase",
+      "description": "Você está sendo caçado! Fuja da polícia até o interior.",
+      "giver": { "x": -120, "z": 140 }, "reward": 3000, "timeLimit": 240,
+      "requires": { "landVehicle": true }, "setWanted": 2,
+      "checkpoints": [
+        { "x": -110, "z": 180, "r": 10, "label": "Pegar o carro de fuga", "dialog": "Contato: A polícia já está a caminho. Some daqui!" },
+        { "x": 620, "z": -560, "r": 14, "label": "Saída da cidade" },
+        { "x": 1000, "z": -650, "r": 14, "label": "Esconderijo no Sertão" }
+      ]
+    },
+    {
+      "id": "taxi_beach", "name": "Corrida de Táxi", "type": "taxi",
+      "description": "Leve o passageiro do centro até a Praia Dourada usando um táxi.",
+      "giver": { "x": -360, "z": 160 }, "reward": 1200, "timeLimit": 240,
+      "requires": { "vehicleCategory": ["taxi"] },
+      "checkpoints": [
+        { "x": -360, "z": 180, "r": 8, "label": "Buscar passageiro", "dialog": "Passageiro: Praia Dourada, por favor. Estou atrasado!" },
+        { "x": -760, "z": 0, "r": 10, "label": "Deixar na Praia Dourada", "dialog": "Passageiro: Fica com o troco!" }
+      ]
+    },
+    {
+      "id": "coop_port", "name": "Operação Conjunta no Porto", "type": "coop",
+      "description": "Missão cooperativa: a equipe precisa inspecionar o porto. Requer 2 jogadores na sala.",
+      "giver": { "x": 680, "z": 600 }, "reward": 4000, "timeLimit": 360,
+      "requires": { "minPlayers": 2 },
+      "checkpoints": [
+        { "x": 700, "z": 600, "r": 10, "label": "Ponto de encontro" },
+        { "x": 700, "z": 725, "r": 10, "label": "Inspecionar o cais" },
+        { "x": 900, "z": 400, "r": 10, "label": "Armazém suspeito" }
+      ]
+    },
+    {
+      "id": "explore_rural", "name": "Expedição Rural", "type": "explore",
+      "description": "Explore o Vale do Sertão e visite os pontos marcados.",
+      "giver": { "x": 640, "z": -570 }, "reward": 2000, "timeLimit": 600,
+      "requires": {},
+      "checkpoints": [
+        { "x": 700, "z": -780, "r": 14, "label": "Plantações" },
+        { "x": 820, "z": -820, "r": 14, "label": "Fazenda Boa Vista" },
+        { "x": 1150, "z": -850, "r": 16, "label": "Curva da Serra" },
+        { "x": 800, "z": -1130, "r": 16, "label": "Mirante do Lago" }
+      ]
+    },
+    {
+      "id": "boat_regatta", "name": "Regata da Costa", "type": "boat_race",
+      "description": "Corrida de barcos ao redor da Ilha do Farol.",
+      "giver": { "x": -845, "z": 500 }, "reward": 2500, "timeLimit": 300,
+      "requires": { "boat": true },
+      "checkpoints": [
+        { "x": -940, "z": 500, "r": 14, "label": "Largada" },
+        { "x": -1050, "z": 250, "r": 18, "label": "Boia 1" },
+        { "x": -1290, "z": 380, "r": 18, "label": "Boia do Farol" },
+        { "x": -1130, "z": 540, "r": 18, "label": "Boia 3" },
+        { "x": -950, "z": 620, "r": 16, "label": "Chegada" }
+      ]
+    },
+    {
+      "id": "cargo_heavy", "name": "Carga Pesada", "type": "cargo",
+      "description": "Transporte contêineres do cais até o aeroporto com um veículo de carga.",
+      "giver": { "x": 720, "z": 700 }, "reward": 3500, "timeLimit": 420,
+      "requires": { "vehicleCategory": ["truck", "van", "pickup"] },
+      "checkpoints": [
+        { "x": 700, "z": 715, "r": 10, "label": "Carregar no cais" },
+        { "x": 520, "z": 160, "r": 12, "label": "Perimetral" },
+        { "x": 880, "z": 130, "r": 12, "label": "Descarregar no terminal" }
+      ]
+    },
+    {
+      "id": "recover_zenit", "name": "Recuperar o Zênite", "type": "recover",
+      "description": "Um Zênite V12 foi abandonado no aeroporto. Recupere-o e leve até a Aurora Customs.",
+      "giver": { "x": 200, "z": 230 }, "reward": 3200, "timeLimit": 420,
+      "requires": {},
+      "spawnVehicle": { "model": "zenit", "x": 960, "z": 140, "yaw": 1.57 },
+      "checkpoints": [
+        { "x": 960, "z": 140, "r": 8, "label": "Encontrar o Zênite", "needMissionVehicle": true },
+        { "x": 210, "z": 215, "r": 10, "label": "Entregar na Aurora Customs", "needMissionVehicle": true, "dialog": "Mecânico: Que máquina! Pode deixar com a gente." }
+      ]
+    },
+    {
+      "id": "event_beach", "name": "Evento: Caça ao Tesouro", "type": "event",
+      "description": "Evento público: encontre os baús espalhados pela Praia Dourada.",
+      "giver": { "x": -820, "z": 100 }, "reward": 1800, "timeLimit": 300, "public": true,
+      "requires": {},
+      "checkpoints": [
+        { "x": -835, "z": -120, "r": 6, "label": "Baú 1" },
+        { "x": -845, "z": 240, "r": 6, "label": "Baú 2" },
+        { "x": -840, "z": 430, "r": 6, "label": "Baú 3" },
+        { "x": -815, "z": 50, "r": 6, "label": "Baú final" }
+      ]
+    }
+  ]
+}

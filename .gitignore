@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.data/
+data/
+*.log
+.env
+.env.local
+.env.production.local
+.vite/
+.vitest-cache/
+.DS_Store

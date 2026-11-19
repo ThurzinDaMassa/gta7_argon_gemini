@@ -1,0 +1,23 @@
+# Blueprint de Deploy Gratuito no Render.com (Backend + WebSockets) + Neon PostgreSQL
+services:
+  - type: web
+    name: gta7-online-server
+    runtime: node
+    plan: free
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm run start -w server
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: SERVER_REGION
+        value: us-east
+      - key: CORS_ORIGIN
+        sync: false # Definir a URL pública do Cloudflare Pages (ex: https://gta7-online.pages.dev)
+      - key: DATABASE_URL
+        sync: false # Connection string do Neon PostgreSQL Free (postgresql://...?sslmode=require)
